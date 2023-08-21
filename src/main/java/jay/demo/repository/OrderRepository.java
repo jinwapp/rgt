@@ -38,6 +38,6 @@ public interface OrderRepository extends JpaRepository<OrderEntity,String> {
 
     @Modifying
     @Query(value = "UPDATE order_entity SET product_name = '카페라떼'"
-            + "WHERE product_name = 카페테리아", nativeQuery = true)
+            + "WHERE product_name = '카페테리아'", nativeQuery = true)
     void update();
 }
