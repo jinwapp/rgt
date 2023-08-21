@@ -23,13 +23,14 @@ public class OrderService {
     private final OrderMapper orderMapper;
 
     /**
-     * 1. RESTful API 작성
+     * 1. RESTful API 작성, 2.2 데이터 수정
      */
     public ResponseEntity<?> order(ReqOrderPostDto reqOrderPostDto) {
         try {
             OrderEntity orderEntity = orderMapper.reqReqOrderPostDtoToOrderEntity(reqOrderPostDto);
             System.out.println(orderEntity.toString());
             OrderEntity savedOrderEntity = orderRepository.save(orderEntity);
+            modifyData();
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = "<pre>" + objectMapper.writeValueAsString(savedOrderEntity) + "<pre/> 주문번호 : 0007 : 수신";
             System.out.println(jsonString);
@@ -50,5 +51,12 @@ public class OrderService {
             Integer orderCount = Integer.valueOf((String) obj[1]);
             orderRepository.deleteByOrderIdAndOrderCount(orderId, orderCount);
         }
+    }
+
+    /**
+     * 2.2 데이터 수정
+     */
+    public void modifyData() {
+        orderRepository.update();
     }
 }
