@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: classpath:application-db.yml
+
+  banner:
+    location: banner-dev.txt
+
+  datasource:
+    url: ${dev-db.url}
+    username: ${dev-db.username}
+    password: ${dev-db.password}
+  jpa:
+    hibernate:
+      ddl-auto: validate

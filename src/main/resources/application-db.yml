@@ -1,0 +1,15 @@
+# 각 환경마다 사용할 Datasource 값 설정
+local-db:
+  url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+  username: root
+  password: wlsdnthgml12$
+
+dev-db:
+  url: jdbc:mysql://비밀url:3306/test-dev
+  username: admin
+  password: 비밀번호
+
+prod-db:
+  url: jdbc:mysql://비밀url:3306/test-prod
+  username: admin
+  password: 비밀번호

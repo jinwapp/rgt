@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: classpath:application-db.yml
+
+  datasource:
+    url: ${local-db.url}
+    username: ${local-db.username}
+    password: ${local-db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+oauth2:
+  google:
+    client-id: 1076101957471-ab5q1quvk1q3hvm0ob6rh1pqfhraj4u0.apps.googleusercontent.com
+    client-secret: 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
+    redirect-uri: http://localhost:8080/login/oauth2/code/google
+    token-uri: https://oauth2.googleapis.com/token
+    resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
